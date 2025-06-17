@@ -1,12 +1,9 @@
-name: Rolling - Coverage Build
+name: Jazzy - ABI Compatibility Check
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - master
   pull_request:
     branches:
-      - master
+      - jazzy
 
 concurrency:
   # cancel previous runs of the same workflow, except for pushes on humble branch
@@ -14,9 +11,7 @@ concurrency:
   cancel-in-progress: ${{ !startsWith(github.ref, '/refs/heads') }}
 
 jobs:
-  coverage_rolling:
-    name: coverage build - rolling
-    uses: ros-controls/ros2_control_ci/.github/workflows/reusable-build-coverage.yml@master
-    secrets: inherit
+  abi_check:
+    uses: ros-controls/ros2_control_ci/.github/workflows/reusable-abi-check.yml@master
     with:
-      ros_distro: rolling
+      ros_distro: jazzy

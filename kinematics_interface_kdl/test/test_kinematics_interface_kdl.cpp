@@ -28,8 +28,6 @@ public:
   std::shared_ptr<kinematics_interface::KinematicsInterface> ik_;
   std::shared_ptr<rclcpp_lifecycle::LifecycleNode> node_;
   std::string end_effector_ = "link2";
-  std::string urdf_ = std::string(ros2_control_test_assets::urdf_head) +
-                      std::string(ros2_control_test_assets::urdf_tail);
 
   void SetUp()
   {
@@ -52,7 +50,9 @@ public:
 
   void loadURDFParameter()
   {
-    rclcpp::Parameter param("robot_description", urdf_);
+    auto urdf = std::string(ros2_control_test_assets::urdf_head) +
+                std::string(ros2_control_test_assets::urdf_tail);
+    rclcpp::Parameter param("robot_description", urdf);
     node_->declare_parameter("robot_description", "");
     node_->set_parameter(param);
   }
@@ -63,17 +63,6 @@ public:
     node_->declare_parameter("alpha", 0.005);
     node_->set_parameter(param);
   }
-
-  /**
-   * \brief Used for testing initialization from parameters.
-   * Elsewhere, `end_effector_` member is used.
-  */
-  void loadTipParameter()
-  {
-    rclcpp::Parameter param("tip", "link2");
-    node_->declare_parameter("tip", "link2");
-    node_->set_parameter(param);
-  }
 };
 
 TEST_F(TestKDLPlugin, KDL_plugin_function)
@@ -81,10 +70,9 @@ TEST_F(TestKDLPlugin, KDL_plugin_function)
   // load robot description and alpha to parameter server
   loadURDFParameter();
   loadAlphaParameter();
-  loadTipParameter();
 
   // initialize the  plugin
-  ASSERT_TRUE(ik_->initialize(urdf_, node_->get_node_parameters_interface(), ""));
+  ASSERT_TRUE(ik_->initialize(node_->get_node_parameters_interface(), end_effector_));
 
   // calculate end effector transform
   Eigen::Matrix<double, Eigen::Dynamic, 1> pos = Eigen::Matrix<double, 2, 1>::Zero();
@@ -115,10 +103,9 @@ TEST_F(TestKDLPlugin, KDL_plugin_function_std_vector)
   // load robot description and alpha to parameter server
   loadURDFParameter();
   loadAlphaParameter();
-  loadTipParameter();
 
   // initialize the  plugin
-  ASSERT_TRUE(ik_->initialize(urdf_, node_->get_node_parameters_interface(), ""));
+  ASSERT_TRUE(ik_->initialize(node_->get_node_parameters_interface(), end_effector_));
 
   // calculate end effector transform
   std::vector<double> pos = {0, 0};
@@ -149,10 +136,9 @@ TEST_F(TestKDLPlugin, incorrect_input_sizes)
   // load robot description and alpha to parameter server
   loadURDFParameter();
   loadAlphaParameter();
-  loadTipParameter();
 
   // initialize the  plugin
-  ASSERT_TRUE(ik_->initialize(urdf_, node_->get_node_parameters_interface(), ""));
+  ASSERT_TRUE(ik_->initialize(node_->get_node_parameters_interface(), end_effector_));
 
   // define correct values
   Eigen::Matrix<double, Eigen::Dynamic, 1> pos = Eigen::Matrix<double, 2, 1>::Zero();
@@ -189,11 +175,5 @@ TEST_F(TestKDLPlugin, KDL_plugin_no_robot_description)
 {
   // load alpha to parameter server
   loadAlphaParameter();
-  loadTipParameter();
-  ASSERT_FALSE(ik_->initialize("", node_->get_node_parameters_interface(), ""));
-}
-
-TEST_F(TestKDLPlugin, KDL_plugin_no_parameter_tip)
-{
-  ASSERT_FALSE(ik_->initialize(urdf_, node_->get_node_parameters_interface(), ""));
+  ASSERT_FALSE(ik_->initialize(node_->get_node_parameters_interface(), end_effector_));
 }

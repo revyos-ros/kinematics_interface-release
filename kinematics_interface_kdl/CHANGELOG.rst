@@ -2,23 +2,15 @@
 Changelog for package kinematics_interface_kdl
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.2.1 (2024-11-11)
+0.4.0 (2025-05-23)
 ------------------
-* Remove ns from robot_description parameter (`#91 <https://github.com/ros-controls/kinematics_interface/issues/91>`_)
-* Contributors: Christoph Fröhlich
+* Use CMake targets for eigen (backport `#50 <https://github.com/ros-controls/kinematics_interface/issues/50>`_) (`#55 <https://github.com/ros-controls/kinematics_interface/issues/55>`_)
+* Contributors: mergify[bot]
 
-1.2.0 (2024-11-05)
+0.3.0 (2024-02-19)
 ------------------
-* API changes to support robot description (`#83 <https://github.com/ros-controls/kinematics_interface/issues/83>`_)
-* Contributors: Dr. Denis
 
-1.1.0 (2024-05-20)
-------------------
-* Read base parameter in initialize function (`#73 <https://github.com/ros-controls/kinematics_interface/issues/73>`_)
-* Use CMake targets for eigen (`#50 <https://github.com/ros-controls/kinematics_interface/issues/50>`_)
-* Contributors: Bence Magyar, Christoph Fröhlich
-
-1.0.0 (2023-11-16)
+0.2.0 (2023-11-16)
 ------------------
 * 🤔 Remove compile warnings and unify for-loop syntax. (`#15 <https://github.com/ros-controls/kinematics_interface/issues/15>`_)
 * Contributors: Dr. Denis, Bence Magyar, Paul Gesel

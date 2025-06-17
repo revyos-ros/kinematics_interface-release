@@ -1,22 +1,21 @@
-name: ABI Compatibility Check
+name: Rolling - ABI Compatibility Check
 on:
   workflow_dispatch:
   pull_request:
     branches:
       - master
 
+concurrency:
+  # cancel previous runs of the same workflow, except for pushes on humble branch
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ !startsWith(github.ref, '/refs/heads') }}
+
 jobs:
   abi_check:
-    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        ROS_DISTRO: [rolling, jazzy, iron]
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ros-industrial/industrial_ci@master
-        env:
-          ROS_DISTRO: ${{ matrix.ROS_DISTRO }}
-          ROS_REPO: main
-          ABICHECK_URL: github:${{ github.repository }}#${{ github.base_ref }}
-          NOT_TEST_BUILD: true
+        ROS_DISTRO: [kilted, rolling]
+    uses: ros-controls/ros2_control_ci/.github/workflows/reusable-abi-check.yml@master
+    with:
+      ros_distro: ${{ matrix.ROS_DISTRO }}

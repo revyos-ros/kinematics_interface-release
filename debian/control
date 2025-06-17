@@ -1,0 +1,12 @@
+Source: ros-humble-kinematics-interface
+Section: misc
+Priority: optional
+Maintainer: Denis Štogl <denis@stogl.de>
+Build-Depends: debhelper (>= 9.0.0), libeigen3-dev, ros-humble-ament-cmake, ros-humble-rclcpp-lifecycle, ros-humble-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-humble-kinematics-interface
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libeigen3-dev, ros-humble-rclcpp-lifecycle, ros-humble-ros-workspace
+Description: Kinematics interface for ROS 2 control

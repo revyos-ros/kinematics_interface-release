@@ -1,6 +1,6 @@
-name: Rolling - Binary Build
-# author: Denis Štogl <denis@stoglrobotics.de>
-# description: 'Build & test all dependencies from released (binary) packages.'
+name: Rolling - Check Compatibility
+# author: Christoph Froehlich <christoph.froehlich@ait.ac.at>
+# description: 'Build & test the rolling version on earlier distros.'
 
 on:
   workflow_dispatch:
@@ -10,9 +10,6 @@ on:
   push:
     branches:
       - master
-  schedule:
-    # Run every morning to detect flakiness and broken dependencies
-    - cron: '03 1 * * *'
 
 concurrency:
   # cancel previous runs of the same workflow, except for pushes on humble branch
@@ -20,15 +17,14 @@ concurrency:
   cancel-in-progress: ${{ !startsWith(github.ref, '/refs/heads') }}
 
 jobs:
-  binary:
+  build:
     uses: ros-controls/ros2_control_ci/.github/workflows/reusable-industrial-ci-with-cache.yml@master
     strategy:
       fail-fast: false
       matrix:
-        ROS_DISTRO: [kilted, rolling]
-        ROS_REPO: [main, testing]
+        ROS_DISTRO: [humble, jazzy, kilted]
     with:
       ros_distro: ${{ matrix.ROS_DISTRO }}
-      ros_repo: ${{ matrix.ROS_REPO }}
-      upstream_workspace: kinematics_interface-not-released.${{ matrix.ROS_DISTRO }}.repos
+      ros_repo: testing
+      upstream_workspace: kinematics_interface.rolling.repos
       ref_for_scheduled_build: master

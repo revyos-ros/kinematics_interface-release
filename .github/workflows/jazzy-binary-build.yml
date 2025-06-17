@@ -1,4 +1,4 @@
-name: Humble Binary Build
+name: Jazzy - Binary Build
 # author: Denis Štogl <denis@stoglrobotics.de>
 # description: 'Build & test all dependencies from released (binary) packages.'
 
@@ -6,10 +6,10 @@ on:
   workflow_dispatch:
   pull_request:
     branches:
-      - humble
+      - jazzy
   push:
     branches:
-      - humble
+      - jazzy
   schedule:
     # Run every morning to detect flakiness and broken dependencies
     - cron: '03 1 * * *'
@@ -25,10 +25,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ROS_DISTRO: [humble]
         ROS_REPO: [main, testing]
     with:
-      ros_distro: ${{ matrix.ROS_DISTRO }}
+      ros_distro: jazzy
       ros_repo: ${{ matrix.ROS_REPO }}
-      upstream_workspace: kinematics_interface-not-released.${{ matrix.ROS_DISTRO }}.repos
-      ref_for_scheduled_build: humble
+      upstream_workspace: kinematics_interface-not-released.jazzy.repos
+      ref_for_scheduled_build: jazzy

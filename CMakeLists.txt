@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
 project(kinematics_interface LANGUAGES CXX)
 
-if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
-  add_compile_options(-Wall -Wextra -Wpedantic)
-endif()
+find_package(ros2_control_cmake REQUIRED)
+set_compiler_options()
+export_windows_symbols()
 
 set(THIS_PACKAGE_INCLUDE_DEPENDS
   rclcpp
@@ -25,10 +25,7 @@ target_include_directories(kinematics_interface PUBLIC
   $<INSTALL_INTERFACE:include/kinematics_interface>
 )
 target_link_libraries(kinematics_interface PUBLIC
-  Eigen3::Eigen
-)
-ament_target_dependencies(kinematics_interface PUBLIC
-  ${THIS_PACKAGE_INCLUDE_DEPENDS}
+  Eigen3::Eigen rclcpp::rclcpp rclcpp_lifecycle::rclcpp_lifecycle
 )
 
 # Causes the visibility macros to use dllexport rather than dllimport,

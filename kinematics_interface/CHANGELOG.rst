@@ -2,16 +2,11 @@
 Changelog for package kinematics_interface
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2.1.0 (2025-05-23)
+1.4.0 (2025-05-23)
 ------------------
-* [kilted] Update deprecated call to ament_target_dependencies (`#138 <https://github.com/ros-controls/kinematics_interface/issues/138>`_)
-* Use ros2_control_cmake (`#118 <https://github.com/ros-controls/kinematics_interface/issues/118>`_)
-* Contributors: Christoph Fröhlich, David V. Lu!!
-
-2.0.0 (2025-03-11)
-------------------
-* Add methods for computing frame differences (`#93 <https://github.com/ros-controls/kinematics_interface/issues/93>`_)
-* Contributors: francesco-donofrio
+* [kilted] Update deprecated call to ament_target_dependencies (backport `#138 <https://github.com/ros-controls/kinematics_interface/issues/138>`_) (`#142 <https://github.com/ros-controls/kinematics_interface/issues/142>`_)
+* Use ros2_control_cmake (backport `#118 <https://github.com/ros-controls/kinematics_interface/issues/118>`_) (`#119 <https://github.com/ros-controls/kinematics_interface/issues/119>`_)
+* Contributors: mergify[bot]
 
 1.3.0 (2025-03-11)
 ------------------

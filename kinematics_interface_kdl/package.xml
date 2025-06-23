@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>kinematics_interface_kdl</name>
-  <version>0.4.0</version>
+  <version>2.1.0</version>
   <description>KDL implementation of ros2_control kinematics interface</description>
   <maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
   <maintainer email="denis@stogl.de">Denis Štogl</maintainer>
@@ -12,6 +12,8 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   <buildtool_depend>eigen3_cmake_module</buildtool_depend>
+
+  <build_depend>ros2_control_cmake</build_depend>
 
   <depend>eigen</depend>
   <depend>kdl_parser</depend>

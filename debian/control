@@ -1,0 +1,12 @@
+Source: ros-jazzy-kinematics-interface
+Section: misc
+Priority: optional
+Maintainer: Denis Štogl <denis@stogl.de>
+Build-Depends: debhelper (>= 9.0.0), libeigen3-dev, ros-jazzy-ament-cmake, ros-jazzy-rclcpp-lifecycle, ros-jazzy-ros2-control-cmake, ros-jazzy-ros-workspace
+Homepage: 
+Standards-Version: 3.9.2
+
+Package: ros-jazzy-kinematics-interface
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libeigen3-dev, ros-jazzy-rclcpp-lifecycle, ros-jazzy-ros-workspace
+Description: Kinematics interface for ROS 2 control

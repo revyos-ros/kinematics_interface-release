@@ -1,12 +1,12 @@
-name: Rolling - Coverage Build
+name: Jazzy - Coverage Build
 on:
   workflow_dispatch:
   push:
     branches:
-      - master
+      - jazzy
   pull_request:
     branches:
-      - master
+      - jazzy
 
 concurrency:
   # cancel previous runs of the same workflow, except for pushes on humble branch
@@ -14,9 +14,9 @@ concurrency:
   cancel-in-progress: ${{ !startsWith(github.ref, '/refs/heads') }}
 
 jobs:
-  coverage_rolling:
-    name: coverage build - rolling
+  coverage_jazzy:
+    name: coverage build - jazzy
     uses: ros-controls/ros2_control_ci/.github/workflows/reusable-build-coverage.yml@master
     secrets: inherit
     with:
-      ros_distro: rolling
+      ros_distro: jazzy

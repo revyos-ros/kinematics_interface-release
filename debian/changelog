@@ -1,0 +1,86 @@
+ros-jazzy-kinematics-interface (2.1.0-1bookworm) bookworm; urgency=high
+
+  * [kilted] Update deprecated call to ament_target_dependencies (#138 <https://github.com/ros-controls/kinematics_interface/issues/138>)
+  * Use ros2_control_cmake (#118 <https://github.com/ros-controls/kinematics_interface/issues/118>)
+  * Contributors: Christoph Fröhlich, David V. Lu!!
+
+ -- Denis Štogl <denis@stogl.de>  Fri, 23 May 2025 00:00:00 -0000
+
+ros-jazzy-kinematics-interface (2.0.0-1bookworm) bookworm; urgency=high
+
+  * Add methods for computing frame differences (#93 <https://github.com/ros-controls/kinematics_interface/issues/93>)
+  * Contributors: francesco-donofrio
+
+ -- Denis Štogl <denis@stogl.de>  Tue, 11 Mar 2025 00:00:00 -0000
+
+ros-jazzy-kinematics-interface (1.3.0-1bookworm) bookworm; urgency=high
+
+  * Remove visibility boilerplate code (#101 <https://github.com/ros-controls/kinematics_interface/issues/101>)
+  * Calculate Jacobian Inverse (#92 <https://github.com/ros-controls/kinematics_interface/issues/92>)
+  * Contributors: Christoph Fröhlich, francesco-donofrio
+
+ -- Denis Štogl <denis@stogl.de>  Tue, 11 Mar 2025 00:00:00 -0000
+
+ros-jazzy-kinematics-interface (1.2.1-1bookworm) bookworm; urgency=high
+
+
+
+ -- Denis Štogl <denis@stogl.de>  Mon, 11 Nov 2024 00:00:00 -0000
+
+ros-jazzy-kinematics-interface (1.2.0-1bookworm) bookworm; urgency=high
+
+  * API changes to support robot description (#83 <https://github.com/ros-controls/kinematics_interface/issues/83>)
+  * Contributors: Dr. Denis
+
+ -- Denis Štogl <denis@stogl.de>  Tue, 05 Nov 2024 00:00:00 -0000
+
+ros-jazzy-kinematics-interface (1.1.0-1bookworm) bookworm; urgency=high
+
+  * Use CMake targets for eigen (#50 <https://github.com/ros-controls/kinematics_interface/issues/50>)
+  * Contributors: Christoph Fröhlich
+
+ -- Denis Štogl <denis@stogl.de>  Mon, 20 May 2024 00:00:00 -0000
+
+ros-jazzy-kinematics-interface (1.0.0-1bookworm) bookworm; urgency=high
+
+  * Use a dynamic library instead of header-only (#21 <https://github.com/ros-controls/kinematics_interface/issues/21>)
+  * Contributors: Thibault Poignonec
+
+ -- Denis Štogl <denis@stogl.de>  Thu, 16 Nov 2023 00:00:00 -0000
+
+ros-jazzy-kinematics-interface (0.1.0-1bookworm) bookworm; urgency=high
+
+  * Fix overriding of install (#13 <https://github.com/ros-controls/kinematics_interface/issues/13>)
+  * [CI] Fix and update formatting workflow and hooks (#14 <https://github.com/ros-controls/kinematics_interface/issues/14>)
+  * Contributors: Dr. Denis, Tyler Weaver
+
+ -- Denis Štogl <denis@stogl.de>  Fri, 27 Jan 2023 00:00:00 -0000
+
+ros-jazzy-kinematics-interface (0.0.2-1bookworm) bookworm; urgency=high
+
+
+
+ -- Denis Štogl <denis@stogl.de>  Fri, 21 Oct 2022 00:00:00 -0000
+
+ros-jazzy-kinematics-interface (0.0.1-1bookworm) bookworm; urgency=high
+
+  * Make formatting of comments unified and nice. (#11 <https://github.com/ros-controls/kinematics_interface/issues/11>)
+  * Enable interface to use Eigen per default (#6 <https://github.com/ros-controls/kinematics_interface/issues/6>)
+  * Add CI setup to the repository. (#8 <https://github.com/ros-controls/kinematics_interface/issues/8>)
+  * Update CMakeFiles, correct deps and formatting. (#10 <https://github.com/ros-controls/kinematics_interface/issues/10>)
+  * add pre-commit to repo (#7 <https://github.com/ros-controls/kinematics_interface/issues/7>)
+  * Fix more indentations and alphabetize
+  * Update dependencies and maintainers
+  * Kinematics interface with KDL implementation
+  * change directory name and use header only interface
+  * changed plugin name to kinematics_interface_kdl/KDLKinematics
+  * add calculate_jacobian as new interface method
+  * added argument to specify which link the Jacobian is calculated with respect to
+  * made interface stateless, changed method name, fixed small bugs
+  * updated README and cleaned up code
+  * added KDL plugin for kinematics interface
+  * Contributors: Paul Gesel, Andy Zelenak, Bence Magyar, Denis Štogl
+
+ -- Denis Štogl <denis@stogl.de>  Tue, 11 Oct 2022 00:00:00 -0000
+
+
